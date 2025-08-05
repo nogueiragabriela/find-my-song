@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2781A9C92E3EC60D00542362 /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 2781A9C82E3EC60D00542362 /* SpotifyiOS */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		66103E232D944B0F000E834A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2781A9C92E3EC60D00542362 /* SpotifyiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = FindMySong;
 			packageProductDependencies = (
+				2781A9C82E3EC60D00542362 /* SpotifyiOS */,
 			);
 			productName = FindMySong;
 			productReference = 66103E0C2D944B07000E834A /* FindMySong.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 66103E032D944B07000E834A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2719D8AD2E3EC4D90077A7BE /* XCRemoteSwiftPackageReference "ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 66103E0D2D944B07000E834A /* Products */;
 			projectDirPath = "";
@@ -289,7 +298,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BAVHY92JF3;
+				DEVELOPMENT_TEAM = K7QSMTW68U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMySong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -317,7 +326,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BAVHY92JF3;
+				DEVELOPMENT_TEAM = K7QSMTW68U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindMySong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -569,6 +578,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2719D8AD2E3EC4D90077A7BE /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spotify/ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2781A9C82E3EC60D00542362 /* SpotifyiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2719D8AD2E3EC4D90077A7BE /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = SpotifyiOS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 66103E042D944B07000E834A /* Project object */;
 }

@@ -4,9 +4,8 @@
 //
 //  Created by henrique.cisi on 05/06/25.
 //
-
 import UIKit
-import WebKit
+@preconcurrency import WebKit
 
 protocol SpotifyWebViewControllerDelegate: AnyObject {
     func spotifyWebViewController(_ controller: SpotifyWebViewController, didReceiveCode code: String)
@@ -15,7 +14,7 @@ protocol SpotifyWebViewControllerDelegate: AnyObject {
 class SpotifyWebViewController: UIViewController, WKNavigationDelegate {
     
     private var webView: WKWebView!
-    
+    private let viewModel = SpotifyWebViewModel()
     weak var delegate: SpotifyWebViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -36,24 +35,14 @@ class SpotifyWebViewController: UIViewController, WKNavigationDelegate {
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        if let url = SpotifyService.shared.getSpotifyAuthURL() as URL? {
+        if let url = viewModel.authURL {
             webView.load(URLRequest(url: url))
         }
     }
     
     // MARK: - Interceptor method
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-        guard let url = navigationAction.request.url else {
-            decisionHandler(.allow)
-            return
-        }
-        
-        let service = SpotifyService.shared
-        
-        if service.isSpotifyCallbackUrlValid(url),
-           let code = service.getSpotifyAccessCode(from: url) {
-            
+        if let code = viewModel.handleNavigationAction(navigationAction) {
             delegate?.spotifyWebViewController(self, didReceiveCode: code)
             dismiss(animated: true)
             decisionHandler(.cancel)

@@ -14,7 +14,7 @@ final class SpotifyService {
     private let clientId: String
     private let clientSecret: String
     private let redirectURI = "fms://login/callback"
-    private let scopes = "user-read-private playlist-modify-public playlist-read-public user-follow-read user-read-email"
+    private let scopes = "user-read-private user-top-read user-read-email"
     private let authorizeBaseURL = "https://accounts.spotify.com/authorize"
     private let responseType = "code"
     private let showDialog = "true"
@@ -41,7 +41,7 @@ final class SpotifyService {
             URLQueryItem(name: "client_id", value: clientId),
             URLQueryItem(name: "response_type", value: responseType),
             URLQueryItem(name: "redirect_uri", value: redirectURI),
-            URLQueryItem(name: "scopes", value: scopes),
+            URLQueryItem(name: "scope", value: scopes),
             URLQueryItem(name: "show_dialog", value: showDialog)
         ]
         return components?.url
